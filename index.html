@@ -1,230 +1,204 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invitación XV Sofía</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #ffe6f0; /* rosa pastel como degradado base */
-      color: #4d4d4d;
-      text-align: center;
-      position: relative;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitación XV Sofía</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(to bottom, #FDDDE6, #fff0f5);
+    color: #684A31;
+  }
 
-    /* Mariposas decorativas */
-    .butterfly {
-      position: absolute;
-      width: 40px;
-      animation: float 8s infinite;
-    }
-    @keyframes float {
-      0% {transform: translateY(0) rotate(0deg);}
-      50% {transform: translateY(-20px) rotate(180deg);}
-      100% {transform: translateY(0) rotate(360deg);}
-    }
+  .section {
+    text-align: center;
+    padding: 50px 20px;
+    position: relative;
+  }
 
-    .hero {
-      position: relative;
-      width: 100%;
-      max-height: 600px;
-      overflow: hidden;
-    }
-    .hero img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-      height: auto;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 50%;
-      background: linear-gradient(to top, rgba(255,182,193,0.8), rgba(255,182,193,0));
-    }
+  .image-block {
+    position: relative;
+  }
 
-    .hero-text {
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
-      color: #b76e79;
-      font-size: 2.5em;
-      font-family: 'Dancing Script', cursive;
-      font-weight: bold;
-    }
-    .hero-sub {
-      font-size: 1.5em;
-      font-style: normal;
-      margin-top: 5px;
-    }
+  .image-block img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 15px;
+  }
 
-    .music-button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: #ffc0cb;
-      border: none;
-      border-radius: 12px;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    }
+  .gradient-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to top, #FDDDE6, transparent);
+    border-radius: 0 0 15px 15px;
+  }
 
-    .section {
-      padding: 40px 20px;
-      max-width: 700px;
-      margin: auto;
-    }
+  .title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3em;
+    margin: 20px 0 10px 0;
+  }
 
-    h2 {
-      color: #d4af7f;
-      margin-bottom: 15px;
-    }
+  .subtitle {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
 
-    .button-confirm {
-      padding: 12px 25px;
-      background: #ffd1dc;
-      border: none;
-      border-radius: 15px;
-      font-size: 1em;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      margin-top: 20px;
-    }
+  /* Botón de música */
+  .music-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: #FFABAB;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    border: none;
+    color: #fff;
+  }
 
-    /* Segunda imagen con bloques rosa */
-    .secondary-block {
-      background: #ffe6f0;
-      padding: 40px 0;
-    }
-    .secondary-img {
-      width: 100%;
-      max-width: 700px;
-      border-radius: 20px;
-      margin: 20px 0;
-    }
+  .music-button i {
+    font-size: 1.5em;
+  }
 
-    .countdown {
-      font-size: 1.5em;
-      font-weight: bold;
-      color: #b76e79;
-      margin-top: 20px;
-    }
+  .info, .itinerary, .thanks {
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    font-size: 1.1em;
+    line-height: 1.6em;
+    text-align: left;
+  }
 
-  </style>
+  .confirm-button {
+    display: inline-block;
+    background: #C3E88D;
+    color: #684A31;
+    padding: 15px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  .decor {
+    position: absolute;
+    width: 50px;
+    animation: float 6s infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0);}
+    50% { transform: translateY(-20px);}
+    100% { transform: translateY(0);}
+  }
+
+  /* Cuenta regresiva */
+  .countdown {
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- Mariposas decorativas -->
-  <img src="https://i.postimg.cc/9FzRjF6c/butterfly.png" class="butterfly" style="top:50px; left:20px;">
-  <img src="https://i.postimg.cc/9FzRjF6c/butterfly.png" class="butterfly" style="top:200px; right:30px; animation-duration:10s;">
-  <img src="https://i.postimg.cc/9FzRjF6c/butterfly.png" class="butterfly" style="top:400px; left:50%; animation-duration:12s;">
+<!-- Primer Bloque -->
+<div class="section image-block">
+  <img src="image1.png" alt="Sofía">
+  <div class="gradient-overlay"></div>
+  <div class="title">Sofía</div>
+  <div class="subtitle">Mis XV</div>
 
-  <!-- Hero image principal -->
-  <div class="hero">
-    <img src="image1.png" alt="Sofía XV">
-    <div class="hero-text">
-      Sofía
-      <div class="hero-sub">Mis XV</div>
-    </div>
-  </div>
+  <button class="music-button" id="musicBtn">
+    <i class="fas fa-play" id="musicIcon"></i>
+    <span>Mis Quince Primaveras</span>
+  </button>
+  <audio id="music" src="https://www.youtube.com/embed/VJNMl9Yz1RA?si=QICPWTXHMi6KORGY"></audio>
+</div>
 
-  <!-- Botón de música -->
-  <button class="music-button" id="musicBtn">🎵 Mis Quince Primaveras - Play</button>
-  <iframe id="music" width="0" height="0" src="https://www.youtube.com/embed/VJNMl9Yz1RA?enablejsapi=1" title="YouTube video player" frameborder="0" allow="autoplay"></iframe>
+<!-- Información -->
+<div class="section info">
+  <h2>Detalles de la Fiesta</h2>
+  <p><strong>Día:</strong> 23 de Octubre de 2025</p>
+  <p><strong>Lugar:</strong> Salón Rosas Doradas, Ciudad de México</p>
+  <p><strong>Hora:</strong> 6:00 PM</p>
+</div>
 
-  <!-- Detalles de la invitación -->
-  <div class="section">
-    <h2>Detalles de la Fiesta</h2>
-    <p>📅 Fecha: 23 de Octubre, 2025</p>
-    <p>📍 Lugar: Salón “Mariposas Doradas”</p>
-    <p>❤️ Agradecimiento especial a nuestros familiares y amigos por acompañarnos en este día tan especial.</p>
-  </div>
+<!-- Itinerario -->
+<div class="section itinerary" style="background:#FFEBF0; border-radius:15px; padding:30px;">
+  <h2>Itinerario</h2>
+  <ul>
+    <li>6:00 PM - Recepción</li>
+    <li>6:30 PM - Baile con papás</li>
+    <li>7:00 PM - Brindis y comida</li>
+    <li>8:00 PM - Baile con amigos</li>
+    <li>10:00 PM - Pastel y despedida</li>
+  </ul>
+  <a href="#" class="confirm-button">Confirmar asistencia</a>
+</div>
 
-  <!-- Itinerario -->
-  <div class="section">
-    <h2>Itinerario</h2>
-    <ul style="list-style:none; padding:0;">
-      <li>17:00 - Recepción</li>
-      <li>18:00 - Baile de bienvenida</li>
-      <li>19:00 - Cena</li>
-      <li>20:00 - Show y baile de XV</li>
-      <li>22:00 - Fiesta y música</li>
-    </ul>
-    <button class="button-confirm">✅ Confirmar asistencia</button>
-  </div>
+<!-- Segunda imagen -->
+<div class="section image-block" style="background:#FFEBF0; border-radius:15px; padding:40px 20px;">
+  <img src="image2.png" alt="Sofía">
+  <div class="subtitle">Un día inolvidable para Mis XV</div>
+</div>
 
-  <!-- Segunda imagen con bloque rosa -->
-  <div class="secondary-block">
-    <img class="secondary-img" src="image2.png" alt="Sofía XV">
-    <p>¡Celebrando los maravillosos XV de Sofía! 🌸💛</p>
-  </div>
+<!-- Cuenta regresiva -->
+<div class="section">
+  <h2>¡Faltan para la Fiesta!</h2>
+  <div class="countdown" id="countdown"></div>
+</div>
 
-  <!-- Cuenta regresiva -->
-  <div class="section">
-    <h2>Cuenta regresiva</h2>
-    <div class="countdown" id="countdown"></div>
-  </div>
+<!-- Decoraciones extra -->
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Butterfly_icon.svg/1200px-Butterfly_icon.svg.png" class="decor" style="top:50px; left:30px; width:40px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Butterfly_icon.svg/1200px-Butterfly_icon.svg.png" class="decor" style="top:200px; right:50px; width:60px;">
 
-  <script>
-    // Música play/pause
-    let player;
-    let musicBtn = document.getElementById("musicBtn");
+<script>
+  // Música play/pause
+  const musicBtn = document.getElementById('musicBtn');
+  const music = document.getElementById('music');
+  const musicIcon = document.getElementById('musicIcon');
 
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('music');
+  musicBtn.addEventListener('click', () => {
+    if (music.paused) {
+      music.play();
+      musicIcon.classList.remove('fa-play');
+      musicIcon.classList.add('fa-pause');
+    } else {
+      music.pause();
+      musicIcon.classList.remove('fa-pause');
+      musicIcon.classList.add('fa-play');
     }
+  });
 
-    musicBtn.addEventListener("click", function() {
-      if (!player) return;
-      if (musicBtn.dataset.playing === "true") {
-        player.pauseVideo();
-        musicBtn.textContent = "🎵 Mis Quince Primaveras - Play";
-        musicBtn.dataset.playing = "false";
-      } else {
-        player.playVideo();
-        musicBtn.textContent = "⏸ Mis Quince Primaveras - Pause";
-        musicBtn.dataset.playing = "true";
-      }
-    });
+  // Cuenta regresiva
+  const countdown = document.getElementById('countdown');
+  const eventDate = new Date("October 23, 2025 18:00:00").getTime();
 
-    // Cargar API de YouTube
-    let tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.body.appendChild(tag);
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
 
-    // Cuenta regresiva
-    const countdownEl = document.getElementById("countdown");
-    const fiestaDate = new Date("October 23, 2025 17:00:00").getTime();
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000*60*60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000*60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = fiestaDate - now;
+    countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000*60*60));
-      const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-      const seconds = Math.floor((distance % (1000*60)) / 1000);
-
-      countdownEl.textContent = `${days} días ${hours}h ${minutes}m ${seconds}s`;
-
-      if(distance < 0){
-        countdownEl.textContent = "¡La fiesta comenzó! 🎉";
-      }
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>
 
 </body>
 </html>
