@@ -5,16 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Invitación XV Sofía</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background: #fff0f5; /* rosa pastel muy suave */
+      background: #ffe6f0; /* rosa pastel como degradado base */
       color: #4d4d4d;
       text-align: center;
+      position: relative;
     }
 
-    /* Imagen principal con degradado */
+    /* Mariposas decorativas */
+    .butterfly {
+      position: absolute;
+      width: 40px;
+      animation: float 8s infinite;
+    }
+    @keyframes float {
+      0% {transform: translateY(0) rotate(0deg);}
+      50% {transform: translateY(-20px) rotate(180deg);}
+      100% {transform: translateY(0) rotate(360deg);}
+    }
+
     .hero {
       position: relative;
       width: 100%;
@@ -41,9 +54,9 @@
       position: absolute;
       bottom: 20px;
       width: 100%;
-      color: #b76e79; /* dorado rosa */
-      font-size: 2em;
-      font-style: italic;
+      color: #b76e79;
+      font-size: 2.5em;
+      font-family: 'Dancing Script', cursive;
       font-weight: bold;
     }
     .hero-sub {
@@ -52,11 +65,10 @@
       margin-top: 5px;
     }
 
-    /* Botón de música */
     .music-button {
       margin-top: 15px;
       padding: 10px 20px;
-      background: #ffc0cb; /* rosa pastel */
+      background: #ffc0cb;
       border: none;
       border-radius: 12px;
       color: white;
@@ -65,7 +77,6 @@
       box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     }
 
-    /* Secciones */
     .section {
       padding: 40px 20px;
       max-width: 700px;
@@ -73,13 +84,13 @@
     }
 
     h2 {
-      color: #d4af7f; /* dorado suave */
+      color: #d4af7f;
       margin-bottom: 15px;
     }
 
     .button-confirm {
       padding: 12px 25px;
-      background: #ffd1dc; /* rosa pastel */
+      background: #ffd1dc;
       border: none;
       border-radius: 15px;
       font-size: 1em;
@@ -90,23 +101,33 @@
       margin-top: 20px;
     }
 
+    /* Segunda imagen con bloques rosa */
+    .secondary-block {
+      background: #ffe6f0;
+      padding: 40px 0;
+    }
     .secondary-img {
       width: 100%;
       max-width: 700px;
       border-radius: 20px;
-      margin: 30px 0;
+      margin: 20px 0;
     }
 
-    /* Cuenta regresiva */
     .countdown {
       font-size: 1.5em;
       font-weight: bold;
       color: #b76e79;
       margin-top: 20px;
     }
+
   </style>
 </head>
 <body>
+
+  <!-- Mariposas decorativas -->
+  <img src="https://i.postimg.cc/9FzRjF6c/butterfly.png" class="butterfly" style="top:50px; left:20px;">
+  <img src="https://i.postimg.cc/9FzRjF6c/butterfly.png" class="butterfly" style="top:200px; right:30px; animation-duration:10s;">
+  <img src="https://i.postimg.cc/9FzRjF6c/butterfly.png" class="butterfly" style="top:400px; left:50%; animation-duration:12s;">
 
   <!-- Hero image principal -->
   <div class="hero">
@@ -142,8 +163,8 @@
     <button class="button-confirm">✅ Confirmar asistencia</button>
   </div>
 
-  <!-- Imagen secundaria -->
-  <div class="section">
+  <!-- Segunda imagen con bloque rosa -->
+  <div class="secondary-block">
     <img class="secondary-img" src="image2.png" alt="Sofía XV">
     <p>¡Celebrando los maravillosos XV de Sofía! 🌸💛</p>
   </div>
@@ -154,7 +175,6 @@
     <div class="countdown" id="countdown"></div>
   </div>
 
-  <!-- Scripts -->
   <script>
     // Música play/pause
     let player;
