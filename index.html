@@ -3,49 +3,208 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invitación Sofía</title>
+  <title>Invitación XV Sofía</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: linear-gradient(to bottom, #ffe6f0, #e6f7ff);
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      background: #fff0f5; /* rosa pastel muy suave */
+      color: #4d4d4d;
+      text-align: center;
     }
-    .card {
-      background: white;
-      max-width: 500px;
-      margin: auto;
-      padding: 20px;
-      border-radius: 20px;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+
+    /* Imagen principal con degradado */
+    .hero {
+      position: relative;
+      width: 100%;
+      max-height: 600px;
+      overflow: hidden;
     }
-    h1 {
-      color: #ff66a3;
+    .hero img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      height: auto;
     }
-    .fecha {
-      font-size: 1.2em;
-      margin: 10px 0;
-      color: #555;
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: linear-gradient(to top, rgba(255,182,193,0.8), rgba(255,182,193,0));
     }
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
+
+    .hero-text {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      color: #b76e79; /* dorado rosa */
+      font-size: 2em;
+      font-style: italic;
+      font-weight: bold;
+    }
+    .hero-sub {
+      font-size: 1.5em;
+      font-style: normal;
+      margin-top: 5px;
+    }
+
+    /* Botón de música */
+    .music-button {
       margin-top: 15px;
-      background: #66ccff;
+      padding: 10px 20px;
+      background: #ffc0cb; /* rosa pastel */
+      border: none;
+      border-radius: 12px;
       color: white;
-      text-decoration: none;
-      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    /* Secciones */
+    .section {
+      padding: 40px 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #d4af7f; /* dorado suave */
+      margin-bottom: 15px;
+    }
+
+    .button-confirm {
+      padding: 12px 25px;
+      background: #ffd1dc; /* rosa pastel */
+      border: none;
+      border-radius: 15px;
+      font-size: 1em;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      margin-top: 20px;
+    }
+
+    .secondary-img {
+      width: 100%;
+      max-width: 700px;
+      border-radius: 20px;
+      margin: 30px 0;
+    }
+
+    /* Cuenta regresiva */
+    .countdown {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #b76e79;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>🎉 Estás invitado 🎉</h1>
-    <p>A la fiesta de cumpleaños de <b>Sofía</b></p>
-    <p class="fecha">📅 15 de Septiembre, 5:00 PM</p>
-    <p>📍 Salón de Fiestas "Arcoiris"</p>
-    <a class="btn" href="https://maps.google.com" target="_blank">Ver ubicación</a>
+
+  <!-- Hero image principal -->
+  <div class="hero">
+    <img src="image1.png" alt="Sofía XV">
+    <div class="hero-text">
+      Sofía
+      <div class="hero-sub">Mis XV</div>
+    </div>
   </div>
+
+  <!-- Botón de música -->
+  <button class="music-button" id="musicBtn">🎵 Mis Quince Primaveras - Play</button>
+  <iframe id="music" width="0" height="0" src="https://www.youtube.com/embed/VJNMl9Yz1RA?enablejsapi=1" title="YouTube video player" frameborder="0" allow="autoplay"></iframe>
+
+  <!-- Detalles de la invitación -->
+  <div class="section">
+    <h2>Detalles de la Fiesta</h2>
+    <p>📅 Fecha: 23 de Octubre, 2025</p>
+    <p>📍 Lugar: Salón “Mariposas Doradas”</p>
+    <p>❤️ Agradecimiento especial a nuestros familiares y amigos por acompañarnos en este día tan especial.</p>
+  </div>
+
+  <!-- Itinerario -->
+  <div class="section">
+    <h2>Itinerario</h2>
+    <ul style="list-style:none; padding:0;">
+      <li>17:00 - Recepción</li>
+      <li>18:00 - Baile de bienvenida</li>
+      <li>19:00 - Cena</li>
+      <li>20:00 - Show y baile de XV</li>
+      <li>22:00 - Fiesta y música</li>
+    </ul>
+    <button class="button-confirm">✅ Confirmar asistencia</button>
+  </div>
+
+  <!-- Imagen secundaria -->
+  <div class="section">
+    <img class="secondary-img" src="image2.png" alt="Sofía XV">
+    <p>¡Celebrando los maravillosos XV de Sofía! 🌸💛</p>
+  </div>
+
+  <!-- Cuenta regresiva -->
+  <div class="section">
+    <h2>Cuenta regresiva</h2>
+    <div class="countdown" id="countdown"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Música play/pause
+    let player;
+    let musicBtn = document.getElementById("musicBtn");
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('music');
+    }
+
+    musicBtn.addEventListener("click", function() {
+      if (!player) return;
+      if (musicBtn.dataset.playing === "true") {
+        player.pauseVideo();
+        musicBtn.textContent = "🎵 Mis Quince Primaveras - Play";
+        musicBtn.dataset.playing = "false";
+      } else {
+        player.playVideo();
+        musicBtn.textContent = "⏸ Mis Quince Primaveras - Pause";
+        musicBtn.dataset.playing = "true";
+      }
+    });
+
+    // Cargar API de YouTube
+    let tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
+
+    // Cuenta regresiva
+    const countdownEl = document.getElementById("countdown");
+    const fiestaDate = new Date("October 23, 2025 17:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = fiestaDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000*60*60));
+      const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+      const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+      countdownEl.textContent = `${days} días ${hours}h ${minutes}m ${seconds}s`;
+
+      if(distance < 0){
+        countdownEl.textContent = "¡La fiesta comenzó! 🎉";
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
 </body>
 </html>
