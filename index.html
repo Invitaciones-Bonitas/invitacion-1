@@ -1,234 +1,283 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invitación Quinceaños Sofía</title>
-<link href="https://fonts.googleapis.com/css2?family=Sniglet&family=Nunito&display=swap" rel="stylesheet">
-<style>
-  body {
-    margin:0;
-    font-family: 'Nunito', sans-serif;
-    background: linear-gradient(to bottom, #FFDDEE, #FFABAB);
-    color:#684A31;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación XV Años</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito:wght@300;600&display=swap');
 
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
+    body {
+      margin: 0;
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(to bottom, #fce4ec, #fff);
+      color: #444;
+    }
 
-  img {
-    width: 100%;
-    border-radius: 15px;
-  }
+    header {
+      position: relative;
+      text-align: center;
+      color: #fff;
+    }
 
-  .overlay {
-    position: relative;
-    text-align: center;
-    margin-bottom: 20px;
-  }
+    header img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
-  .overlay-text {
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    color:white;
-    font-size: 2em;
-    font-style: italic;
-    text-shadow: 1px 1px 5px #d88c9a;
-  }
+    header .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(to bottom, rgba(255,182,193,0.7), rgba(255,255,255,0.9));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-  .title {
-    text-align: center;
-    font-size: 2em;
-    margin: 10px 0;
-    font-style: italic;
-    color:#d88c9a;
-  }
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5em;
+      color: #d81b60;
+      margin: 0;
+    }
 
-  .sub-title {
-    text-align: center;
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    color:#FFD700;
-  }
+    header h2 {
+      font-size: 1.5em;
+      margin: 0.5em 0;
+    }
 
-  .music-btns {
-    text-align:center;
-    margin: 20px 0;
-  }
+    /* Botón flotante música */
+    #music-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #f48fb1;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+      z-index: 1000;
+    }
 
-  .music-btns button {
-    font-size:24px;
-    padding:10px 20px;
-    margin: 5px;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    background-color:#FFC0CB;
-  }
+    #music-btn:hover {
+      transform: scale(1.1);
+    }
 
-  .info, .itinerary {
-    background-color: #fff5f7;
-    padding:15px;
-    border-radius:15px;
-    margin-bottom:20px;
-  }
+    #music-btn i {
+      font-size: 24px;
+      color: white;
+    }
 
-  .confirm-btn {
-    display:block;
-    margin: 20px auto;
-    padding:15px 30px;
-    font-size:1.2em;
-    background-color:#FFABAB;
-    border:none;
-    border-radius:20px;
-    cursor:pointer;
-    color:white;
-    font-weight:bold;
-  }
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
 
-  .second-image-block {
-    position: relative;
-    margin-bottom:20px;
-  }
+    section h3 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5em;
+      color: #d81b60;
+      margin-bottom: 20px;
+    }
 
-  .pink-block {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100px;
-    background-color:#FFABAB;
-    border-top-left-radius:15px;
-    border-top-right-radius:15px;
-  }
+    .card {
+      background: #fff;
+      border: 2px solid #f8bbd0;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 500px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
 
-  .pink-block-bottom {
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    height:100px;
-    background-color:#FFABAB;
-    border-bottom-left-radius:15px;
-    border-bottom-right-radius:15px;
-  }
+    .map-btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background: #fbc02d;
+      color: #fff;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-  .decorations {
-    position:absolute;
-    top:10px;
-    right:10px;
-    font-size:30px;
-    opacity:0.5;
-  }
+    .confirm-btn {
+      background: #f48fb1;
+      color: #fff;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.2em;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
 
-  .countdown {
-    text-align:center;
-    font-size:1.5em;
-    margin-top:20px;
-    color:#d88c9a;
-  }
+    .confirm-btn:hover {
+      background: #d81b60;
+    }
 
-</style>
+    .photo-block {
+      background: #fce4ec;
+      padding: 40px 20px;
+    }
+
+    .photo-block img {
+      max-width: 90%;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    .countdown {
+      font-size: 2em;
+      font-weight: bold;
+      color: #d81b60;
+      margin-top: 20px;
+    }
+
+    footer {
+      padding: 30px;
+      text-align: center;
+      background: linear-gradient(to bottom, #fff, #fce4ec);
+      color: #777;
+    }
+
+    /* Decoraciones */
+    .butterfly {
+      position: absolute;
+      width: 60px;
+      animation: flutter 6s infinite;
+    }
+
+    .butterfly1 { top: 100px; left: 20px; }
+    .butterfly2 { bottom: 120px; right: 40px; }
+
+    @keyframes flutter {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(20deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-<div class="container">
+  <!-- Botón música -->
+  <button id="music-btn"><i id="music-icon" class="fas fa-music"></i></button>
+  <audio id="music" src="https://www.youtube.com/embed/VJNMl9Yz1RA?autoplay=1"></audio>
 
-  <!-- Primera imagen con degradado -->
-  <div class="overlay">
-    <img src="image1.png" alt="Sofía">
-    <div class="overlay-text">Sofía</div>
-  </div>
+  <!-- Encabezado -->
+  <header>
+    <img src="image1.png" alt="Quinceañera">
+    <div class="overlay">
+      <h1>Sofía</h1>
+      <h2>Mis XV</h2>
+    </div>
+  </header>
 
-  <div class="title">Mis XV</div>
+  <!-- Agradecimiento -->
+  <section>
+    <p>"Doy gracias a Dios por haberme permitido llegar a la edad más hermosa de mi vida."</p>
+  </section>
 
-  <!-- Música -->
-  <div class="music-btns">
-    <button id="playBtn">▶️</button>
-    <button id="pauseBtn">⏸️</button>
-    <div style="margin-top:5px; font-style:italic; color:#d88c9a;">Mis Quince Primaveras</div>
-  </div>
-
-  <!-- Información de la invitación -->
-  <div class="info">
-    <h3>Invitación</h3>
-    <p>Queridos amigos y familia, los invitamos a celebrar los 15 años de Sofía.</p>
-    <p><strong>Fecha:</strong> 23 de octubre de 2025</p>
-    <p><strong>Lugar:</strong> Salón Rosas y Encanto</p>
-    <p><strong>Agradecimiento:</strong> Gracias por acompañarnos en este día tan especial.</p>
-  </div>
+  <!-- Papás y padrinos -->
+  <section>
+    <div class="card">
+      <h3>Mis papás</h3>
+      <p>Ramiro López M.</p>
+      <p>Martha Gómez M.</p>
+    </div>
+    <div class="card">
+      <h3>Mis padrinos</h3>
+      <p>Elvira García M.</p>
+      <p>José Ángel Vázquez M.</p>
+    </div>
+  </section>
 
   <!-- Itinerario -->
-  <div class="itinerary">
+  <section>
     <h3>Itinerario</h3>
-    <ul>
-      <li>6:00 PM - Recepción</li>
-      <li>7:00 PM - Brindis</li>
-      <li>7:30 PM - Baile de presentación</li>
-      <li>8:00 PM - Cena</li>
-      <li>9:00 PM - Baile con amigos y familia</li>
-      <li>11:00 PM - Pastel y agradecimientos</li>
-    </ul>
-  </div>
+    <div class="card">
+      <p><strong>30 de Diciembre 2025</strong></p>
+      <p>Parroquia "Sagrada"</p>
+      <p>2:00 p.m.</p>
+      <a href="#" class="map-btn">Ver mapa</a>
+    </div>
+    <div class="card">
+      <p>Salón "Increíble"</p>
+      <p>5:00 p.m.</p>
+      <a href="#" class="map-btn">Ver mapa</a>
+    </div>
+    <button class="confirm-btn">Confirmar asistencia</button>
+  </section>
 
-  <!-- Botón confirmación -->
-  <button class="confirm-btn">Confirmar asistencia</button>
-
-  <!-- Segunda imagen con bloques y decoraciones -->
-  <div class="second-image-block">
-    <div class="pink-block"></div>
-    <img src="image2.png" alt="Sofía segunda imagen" style="border-radius:15px; position:relative; z-index:1;">
-    <div class="pink-block-bottom"></div>
-    <div class="decorations">🦋✨🦋</div>
-  </div>
-
-  <div class="sub-title">Celebremos juntos los XV años de Sofía</div>
+  <!-- Segunda foto -->
+  <section class="photo-block">
+    <img src="image2.png" alt="Foto Quinceañera">
+    <p>"Un día especial lleno de sueños, amor y alegría."</p>
+  </section>
 
   <!-- Cuenta regresiva -->
-  <div class="countdown" id="countdown"></div>
+  <section>
+    <h3>Cuenta regresiva</h3>
+    <div class="countdown" id="countdown"></div>
+  </section>
 
-</div>
+  <!-- Decoraciones -->
+  <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="butterfly butterfly1">
+  <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="butterfly butterfly2">
 
-<!-- YouTube API -->
-<div id="player" style="display:none;"></div>
-<script src="https://www.youtube.com/iframe_api"></script>
-<script>
-  let player;
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-      height: '0',
-      width: '0',
-      videoId: 'VJNMl9Yz1RA',
-      events: { 'onReady': onPlayerReady }
+  <!-- Footer -->
+  <footer>
+    Con cariño, Sofía 💖
+  </footer>
+
+  <script>
+    // Música play/pause
+    const music = document.getElementById("music");
+    const musicBtn = document.getElementById("music-btn");
+    const musicIcon = document.getElementById("music-icon");
+
+    let isPlaying = false;
+
+    musicBtn.addEventListener("click", () => {
+      if (isPlaying) {
+        music.pause();
+        musicIcon.classList.remove("fa-pause");
+        musicIcon.classList.add("fa-music");
+      } else {
+        music.play();
+        musicIcon.classList.remove("fa-music");
+        musicIcon.classList.add("fa-pause");
+      }
+      isPlaying = !isPlaying;
     });
-  }
-  function onPlayerReady(event) {
-    document.getElementById('playBtn').onclick = () => player.playVideo();
-    document.getElementById('pauseBtn').onclick = () => player.pauseVideo();
-  }
 
-  // Cuenta regresiva
-  const countdownElement = document.getElementById('countdown');
-  const targetDate = new Date("October 23, 2025 18:00:00").getTime();
+    // Cuenta regresiva
+    const countdown = document.getElementById("countdown");
+    const eventDate = new Date("October 23, 2025 17:00:00").getTime();
 
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 *24))/(1000*60*60));
-    const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
-    const seconds = Math.floor((distance % (1000*60))/1000);
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    countdownElement.innerHTML = `Faltan ${days} días ${hours} h ${minutes} m ${seconds} s para la fiesta`;
-  }
-
-  setInterval(updateCountdown, 1000);
-</script>
+      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  </script>
 
 </body>
 </html>
