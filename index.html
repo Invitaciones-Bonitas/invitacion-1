@@ -12,6 +12,7 @@
       font-family: 'Nunito', sans-serif;
       background: linear-gradient(to bottom, #fce4ec, #fff);
       color: #444;
+      overflow-x: hidden;
     }
 
     header {
@@ -36,6 +37,12 @@
       justify-content: center;
       align-items: center;
       padding: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     header h1 {
@@ -44,6 +51,8 @@
       color: #d81b60;
       margin: 0;
       text-shadow: 2px 2px 8px #fff;
+      animation: fadeInText 2s ease-in-out 0.5s forwards;
+      opacity: 0;
     }
 
     header h2 {
@@ -51,9 +60,16 @@
       margin: 0.5em 0;
       color: #f48fb1;
       text-shadow: 1px 1px 5px #fff;
+      animation: fadeInText 2s ease-in-out 1s forwards;
+      opacity: 0;
     }
 
-    /* Botón flotante música */
+    @keyframes fadeInText {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Botón música */
     #music-btn {
       position: fixed;
       top: 20px;
@@ -72,19 +88,10 @@
       z-index: 1000;
     }
 
-    #music-btn:hover {
-      transform: scale(1.1);
-    }
+    #music-btn:hover { transform: scale(1.1); }
+    #music-btn i { font-size: 24px; color: white; }
 
-    #music-btn i {
-      font-size: 24px;
-      color: white;
-    }
-
-    section {
-      padding: 40px 20px;
-      text-align: center;
-    }
+    section { padding: 40px 20px; text-align: center; }
 
     section h3 {
       font-family: 'Great Vibes', cursive;
@@ -100,7 +107,7 @@
       padding: 25px;
       margin: 20px auto;
       max-width: 500px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
       position: relative;
     }
 
@@ -110,6 +117,13 @@
       top: -15px;
       right: -15px;
       font-size: 2em;
+      animation: floatHeart 4s infinite ease-in-out alternate;
+    }
+
+    @keyframes floatHeart {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(15deg); }
+      100% { transform: translateY(0) rotate(-10deg); }
     }
 
     .map-btn {
@@ -122,7 +136,10 @@
       text-decoration: none;
       font-weight: bold;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: 0.3s;
     }
+
+    .map-btn:hover { transform: scale(1.05); }
 
     .confirm-btn {
       background: #f48fb1;
@@ -134,12 +151,10 @@
       cursor: pointer;
       margin-top: 20px;
       transition: 0.3s;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
     }
 
-    .confirm-btn:hover {
-      background: #d81b60;
-    }
+    .confirm-btn:hover { background: #d81b60; transform: scale(1.05); }
 
     .photo-block {
       background: #fce4ec;
@@ -171,7 +186,7 @@
       font-size: 1.2em;
     }
 
-    /* Decoraciones */
+    /* Mariposas doradas */
     .butterfly {
       position: absolute;
       width: 60px;
@@ -198,6 +213,21 @@
       100% { transform: translate(0px, 0px); }
     }
 
+    /* Corazones flotando en toda la pantalla */
+    .floating-heart {
+      position: absolute;
+      font-size: 24px;
+      color: #f48fb1;
+      animation: floatUp 6s infinite ease-in;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(0.8) rotate(0deg); opacity: 0.8; }
+      50% { transform: translateY(-50px) scale(1) rotate(15deg); opacity: 1; }
+      100% { transform: translateY(-100px) scale(0.8) rotate(-15deg); opacity: 0.6; }
+    }
+
     #player { display: none; }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -217,7 +247,6 @@
     </div>
   </header>
 
-  <!-- Agradecimiento de los papás -->
   <section>
     <div class="card">
       <h3>De parte de mis papás</h3>
@@ -226,7 +255,6 @@
     </div>
   </section>
 
-  <!-- Papás y padrinos -->
   <section>
     <div class="card">
       <h3>Mis padrinos</h3>
@@ -235,7 +263,6 @@
     </div>
   </section>
 
-  <!-- Itinerario -->
   <section>
     <h3>Itinerario</h3>
     <div class="card">
@@ -252,34 +279,30 @@
     <button class="confirm-btn">Confirmar asistencia</button>
   </section>
 
-  <!-- Segunda foto -->
   <section class="photo-block">
     <img src="https://miinvitacion.com.mx/wp-content/uploads/2024/01/quinceanera-rosa-1-1.png" alt="Foto Quinceañera">
     <p>"Un día especial lleno de sueños, amor y alegría."</p>
   </section>
 
-  <!-- Cuenta regresiva -->
   <section>
     <h3>Cuenta regresiva</h3>
     <div class="countdown" id="countdown"></div>
   </section>
 
-  <!-- Decoraciones -->
+  <!-- Mariposas doradas -->
   <img src="https://static.vecteezy.com/system/resources/previews/026/678/429/original/gold-glitter-butterfly-free-png.png" class="butterfly butterfly1">
   <img src="https://static.vecteezy.com/system/resources/previews/026/678/429/original/gold-glitter-butterfly-free-png.png" class="butterfly butterfly2">
 
-  <footer>
-    Con cariño, Sofía 💖
-  </footer>
+  <footer>Con cariño, Sofía 💖</footer>
 
   <div id="player"></div>
 
   <script>
+    // Música
     let player;
     function onYouTubeIframeAPIReady() {
       player = new YT.Player('player', {
-        height: '0',
-        width: '0',
+        height: '0', width: '0',
         videoId: 'VJNMl9Yz1RA',
         playerVars: { autoplay: 0, controls: 0 }
       });
@@ -290,35 +313,39 @@
     let isPlaying = false;
 
     musicBtn.addEventListener("click", () => {
-      if (!isPlaying) {
-        player.playVideo();
-        musicIcon.classList.remove("fa-music");
-        musicIcon.classList.add("fa-pause");
-      } else {
-        player.pauseVideo();
-        musicIcon.classList.remove("fa-pause");
-        musicIcon.classList.add("fa-music");
-      }
+      if (!isPlaying) { player.playVideo(); musicIcon.classList.replace("fa-music","fa-pause"); }
+      else { player.pauseVideo(); musicIcon.classList.replace("fa-pause","fa-music"); }
       isPlaying = !isPlaying;
     });
 
     let tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
-    let firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    document.getElementsByTagName('script')[0].parentNode.insertBefore(tag, null);
 
+    // Cuenta regresiva
     const countdown = document.getElementById("countdown");
     const eventDate = new Date("October 23, 2025 17:00:00").getTime();
-
     setInterval(() => {
       const now = new Date().getTime();
       const distance = eventDate - now;
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      const days = Math.floor(distance / (1000*60*60*24));
+      const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+      const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+      const seconds = Math.floor((distance % (1000*60)) / 1000);
       countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }, 1000);
+    },1000);
+
+    // Corazones flotantes
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('floating-heart');
+      heart.style.left = Math.random()*window.innerWidth + 'px';
+      heart.style.fontSize = (12 + Math.random()*24) + 'px';
+      heart.style.animationDuration = (4 + Math.random()*3) + 's';
+      document.body.appendChild(heart);
+      setTimeout(()=> heart.remove(), 7000);
+    }
+    setInterval(createHeart, 500);
   </script>
 </body>
 </html>
