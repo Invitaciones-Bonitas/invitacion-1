@@ -153,20 +153,33 @@
     }
 
     /* Decoraciones */
-    .butterfly {
-      position: absolute;
-      width: 60px;
-      animation: flutter 6s infinite;
-    }
+    /* Decoraciones */
+.butterfly {
+  position: absolute;
+  width: 60px;
+  animation: flutter 8s infinite ease-in-out, drift 10s infinite linear;
+}
 
-    .butterfly1 { top: 100px; left: 20px; }
-    .butterfly2 { bottom: 120px; right: 40px; }
+.butterfly1 { top: 100px; left: 20px; }
+.butterfly2 { bottom: 120px; right: 40px; }
 
-    @keyframes flutter {
-      0% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-30px) rotate(20deg); }
-      100% { transform: translateY(0) rotate(0deg); }
-    }
+@keyframes flutter {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(15deg); }
+  50% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes drift {
+  0% { transform: translate(0px, 0px); }
+  20% { transform: translate(30px, -20px); }
+  40% { transform: translate(-25px, 15px); }
+  60% { transform: translate(20px, -10px); }
+  80% { transform: translate(-15px, 20px); }
+  100% { transform: translate(0px, 0px); }
+}
+
 
     /* Ocultar el reproductor de YouTube */
     #player {
