@@ -35,18 +35,22 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      padding: 20px;
     }
 
     header h1 {
       font-family: 'Great Vibes', cursive;
-      font-size: 3.5em;
+      font-size: 5em;
       color: #d81b60;
       margin: 0;
+      text-shadow: 2px 2px 8px #fff;
     }
 
     header h2 {
-      font-size: 1.5em;
+      font-size: 2em;
       margin: 0.5em 0;
+      color: #f48fb1;
+      text-shadow: 1px 1px 5px #fff;
     }
 
     /* Botón flotante música */
@@ -77,7 +81,6 @@
       color: white;
     }
 
-    /* Secciones */
     section {
       padding: 40px 20px;
       text-align: center;
@@ -93,11 +96,20 @@
     .card {
       background: #fff;
       border: 2px solid #f8bbd0;
-      border-radius: 15px;
-      padding: 20px;
+      border-radius: 25px;
+      padding: 25px;
       margin: 20px auto;
       max-width: 500px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    .card::before {
+      content: "💖";
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      font-size: 2em;
     }
 
     .map-btn {
@@ -106,9 +118,10 @@
       padding: 10px 20px;
       background: #fbc02d;
       color: #fff;
-      border-radius: 20px;
+      border-radius: 25px;
       text-decoration: none;
       font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     .confirm-btn {
@@ -116,11 +129,12 @@
       color: #fff;
       padding: 15px 30px;
       border: none;
-      border-radius: 25px;
-      font-size: 1.2em;
+      border-radius: 30px;
+      font-size: 1.4em;
       cursor: pointer;
       margin-top: 20px;
       transition: 0.3s;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
     }
 
     .confirm-btn:hover {
@@ -130,11 +144,14 @@
     .photo-block {
       background: #fce4ec;
       padding: 40px 20px;
+      border-radius: 25px;
+      margin: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
 
     .photo-block img {
       max-width: 90%;
-      border-radius: 15px;
+      border-radius: 25px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.2);
     }
 
@@ -143,6 +160,7 @@
       font-weight: bold;
       color: #d81b60;
       margin-top: 20px;
+      text-shadow: 1px 1px 5px #fff;
     }
 
     footer {
@@ -150,70 +168,66 @@
       text-align: center;
       background: linear-gradient(to bottom, #fff, #fce4ec);
       color: #777;
+      font-size: 1.2em;
     }
 
     /* Decoraciones */
-    /* Decoraciones */
-.butterfly {
-  position: absolute;
-  width: 60px;
-  animation: flutter 8s infinite ease-in-out, drift 10s infinite linear;
-}
-
-.butterfly1 { top: 100px; left: 20px; }
-.butterfly2 { bottom: 120px; right: 40px; }
-
-@keyframes flutter {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(15deg); }
-  50% { transform: rotate(-10deg); }
-  75% { transform: rotate(10deg); }
-  100% { transform: rotate(0deg); }
-}
-
-@keyframes drift {
-  0% { transform: translate(0px, 0px); }
-  20% { transform: translate(30px, -20px); }
-  40% { transform: translate(-25px, 15px); }
-  60% { transform: translate(20px, -10px); }
-  80% { transform: translate(-15px, 20px); }
-  100% { transform: translate(0px, 0px); }
-}
-
-
-    /* Ocultar el reproductor de YouTube */
-    #player {
-      display: none;
+    .butterfly {
+      position: absolute;
+      width: 60px;
+      animation: flutter 8s infinite ease-in-out, drift 10s infinite linear;
     }
+
+    .butterfly1 { top: 100px; left: 20px; }
+    .butterfly2 { bottom: 120px; right: 40px; }
+
+    @keyframes flutter {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(15deg); }
+      50% { transform: rotate(-10deg); }
+      75% { transform: rotate(10deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    @keyframes drift {
+      0% { transform: translate(0px, 0px); }
+      20% { transform: translate(30px, -20px); }
+      40% { transform: translate(-25px, 15px); }
+      60% { transform: translate(20px, -10px); }
+      80% { transform: translate(-15px, 20px); }
+      100% { transform: translate(0px, 0px); }
+    }
+
+    #player { display: none; }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- Botón música -->
   <button id="music-btn"><i id="music-icon" class="fas fa-music"></i></button>
 
-  <!-- Encabezado -->
   <header>
     <img src="https://i.pinimg.com/originals/56/cf/0e/56cf0ebd09848f1634d052f724fcbab1.png" alt="Quinceañera">
     <div class="overlay">
       <h1>Sofía</h1>
       <h2>Mis XV</h2>
+      <p style="font-size:1.5em; color:#fff; text-shadow:1px 1px 5px #d81b60; max-width:600px;">
+        ¡Estoy muy feliz de celebrar este momento tan especial! Gracias a todos por acompañarme en mis XV años y compartir conmigo este sueño hecho realidad.
+      </p>
     </div>
   </header>
 
-  <!-- Agradecimiento -->
+  <!-- Agradecimiento de los papás -->
   <section>
-    <p>"Doy gracias a Dios por haberme permitido llegar a la edad más hermosa de mi vida."</p>
+    <div class="card">
+      <h3>De parte de mis papás</h3>
+      <p>Ramiro López M. y Martha Gómez M.</p>
+      <p>Estamos muy orgullosos de nuestra hija Sofía. Gracias a familiares y amigos por estar presentes y compartir esta alegría con nosotros.</p>
+    </div>
   </section>
 
   <!-- Papás y padrinos -->
   <section>
-    <div class="card">
-      <h3>Mis papás</h3>
-      <p>Ramiro López M.</p>
-      <p>Martha Gómez M.</p>
-    </div>
     <div class="card">
       <h3>Mis padrinos</h3>
       <p>Elvira García M.</p>
@@ -254,26 +268,20 @@
   <img src="https://static.vecteezy.com/system/resources/previews/026/678/429/original/gold-glitter-butterfly-free-png.png" class="butterfly butterfly1">
   <img src="https://static.vecteezy.com/system/resources/previews/026/678/429/original/gold-glitter-butterfly-free-png.png" class="butterfly butterfly2">
 
-  <!-- Footer -->
   <footer>
     Con cariño, Sofía 💖
   </footer>
 
-  <!-- YouTube player oculto -->
   <div id="player"></div>
 
   <script>
-    // API de YouTube
     let player;
     function onYouTubeIframeAPIReady() {
       player = new YT.Player('player', {
         height: '0',
         width: '0',
-        videoId: 'VJNMl9Yz1RA', // ID del video
-        playerVars: {
-          autoplay: 0,
-          controls: 0
-        }
+        videoId: 'VJNMl9Yz1RA',
+        playerVars: { autoplay: 0, controls: 0 }
       });
     }
 
@@ -294,25 +302,21 @@
       isPlaying = !isPlaying;
     });
 
-    // Cargar API de YouTube
     let tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     let firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-    // Cuenta regresiva
     const countdown = document.getElementById("countdown");
     const eventDate = new Date("October 23, 2025 17:00:00").getTime();
 
     setInterval(() => {
       const now = new Date().getTime();
       const distance = eventDate - now;
-
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
       countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }, 1000);
   </script>
